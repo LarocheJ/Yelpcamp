@@ -18,14 +18,14 @@ router.get("/", (req, res) => {
 router.post("/", middleware.isLoggedIn, (req, res) => {
 	//get data from form and add to campgrounds array
 	const name = req.body.name;
-	const price = req.body.price;
+	const cost = req.body.cost;
 	const image = req.body.image;
 	const desc = req.body.description;
 	const author = {
 		id: req.user._id,
 		username: req.user.username
 	};
-	const newCampground = {name: name, image: image, description: desc, author: author};
+	const newCampground = {name: name, cost: cost, image: image, description: desc, author: author};
 	
 	//Create a new campground and save to DB
 	Campground.create(newCampground, function(err, newlyCreated){
@@ -64,6 +64,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, (req, res) => {
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", (req, res) => {
+	var updatedCampground = {name: req.body.name, image: req.body.image, cost: req.body.cost, description: req.body.description};
 	Campground.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCampground) => {
 		if(err){
 			res.redirect("/campgrounds");
