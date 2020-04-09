@@ -19,7 +19,9 @@ var commentRoutes    = require("./routes/comments"),
 // Port
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.DATABASEURL, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp";
+
+mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 // mongoose.connect("mongodb+srv://Jimmy:WVWjjsALq136jx9V@cluster0-ief3t.mongodb.net/test?retryWrites=true&w=majority", {
 // 	useNewUrlParser: true,
 // 	useCreateIndex: true,
