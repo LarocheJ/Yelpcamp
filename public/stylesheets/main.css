@@ -9,3 +9,12 @@
 .delete-form {
 	display: inline;
 }
+
+footer .text-muted {
+	text-align: center;
+}
+
+.glyphicon {
+	top: 6px;
+}
+

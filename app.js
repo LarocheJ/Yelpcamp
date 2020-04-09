@@ -22,16 +22,6 @@ const PORT = process.env.PORT || 3000;
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp";
 
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
-// mongoose.connect("mongodb+srv://Jimmy:WVWjjsALq136jx9V@cluster0-ief3t.mongodb.net/test?retryWrites=true&w=majority", {
-// 	useNewUrlParser: true,
-// 	useCreateIndex: true,
-// 	useUnifiedTopology: true
-// }).then(() => {
-// 	console.log("Connected to DB!");
-// }).catch(err => {
-// 	console.log("ERROR: ", err.message);
-// });
-
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
