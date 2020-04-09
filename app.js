@@ -15,6 +15,9 @@ var express     = require("express"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
+
+// Port
+const PORT = process.env.PORT || 3000;
     
 // mongoose.connect("mongodb://localhost:27017/yelp_camp", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 mongoose.connect("mongodb+srv://Jimmy:WVWjjsALq136jx9V@cluster0-ief3t.mongodb.net/test?retryWrites=true&w=majority", {
@@ -57,7 +60,13 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
-var port = server.listen(process.env.PORT || 3000);
-app.listen(port, () => {
-   console.log("The YelpCamp Server Has Started!");
-});
+
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+
+
+
+
+
+
+
