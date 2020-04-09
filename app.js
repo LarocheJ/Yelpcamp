@@ -18,17 +18,18 @@ var commentRoutes    = require("./routes/comments"),
 
 // Port
 const PORT = process.env.PORT || 3000;
-    
-// mongoose.connect("mongodb://localhost:27017/yelp_camp", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
-mongoose.connect("mongodb+srv://Jimmy:WVWjjsALq136jx9V@cluster0-ief3t.mongodb.net/test?retryWrites=true&w=majority", {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useUnifiedTopology: true
-}).then(() => {
-	console.log("Connected to DB!");
-}).catch(err => {
-	console.log("ERROR: ", err.message);
-});
+
+mongoose.connect(process.env.DATABASEURL, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+// mongoose.connect("mongodb+srv://Jimmy:WVWjjsALq136jx9V@cluster0-ief3t.mongodb.net/test?retryWrites=true&w=majority", {
+// 	useNewUrlParser: true,
+// 	useCreateIndex: true,
+// 	useUnifiedTopology: true
+// }).then(() => {
+// 	console.log("Connected to DB!");
+// }).catch(err => {
+// 	console.log("ERROR: ", err.message);
+// });
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
