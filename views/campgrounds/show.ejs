@@ -1,18 +1,8 @@
 <%- include("../partials/header"); %>
 
 <div class="container">
-	
-	<div class="row">
-		<div class="col-md-3">
-			<p class="lead">YelpCamp</p>
-			<div class="list-group">
-				<li class="list-group-item active">Info 1</li>
-				<li class="list-group-item">Info 2</li>
-				<li class="list-group-item">Info 3</li>
-			</div>
-		</div>
-		
-		<div class="col-md-9">
+		<a class="btn" href="/campgrounds"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>
+		<div class="col-md-12">
 			<div class="thumbnail">
 				<img class="img-responsive" src="<%= campground.image %>" alt="<%= campground.name %>">
 				<div class="caption">
